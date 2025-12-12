@@ -31,9 +31,6 @@ CMD ["/entrypoint.sh"]
 # Backup
 RUN cp -rp /etc/sane.d /etc/sane.d.bak
 
-# Services
-RUN service saned restart
-
 # Volume
 VOLUME [ "/etc/sane.d" ]
 

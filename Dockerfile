@@ -24,8 +24,7 @@ RUN apt install --no-install-recommends -y \
                 avahi-utils \
                 sane \
                 sane-saned \
-                sane-backends \
-                sane-utils
+                sane-backends
 
 # SANE Default Configuration
 RUN /usr/sbin/saned -D

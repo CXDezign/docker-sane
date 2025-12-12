@@ -21,10 +21,7 @@ RUN apt install --no-install-recommends -y \
                 whois \
                 nano \
                 usbutils \
-                avahi-utils \
-                sane \
-                sane-saned \
-                sane-backends
+                sane
 
 # SANE Default Configuration
 RUN /usr/sbin/saned -D

@@ -21,9 +21,7 @@ RUN apt install --no-install-recommends -y \
                 whois \
                 nano \
                 usbutils \
-                sane-saned \
-                sane-utils \
-                sane-backends
+                sane
 
 # SANE Default Configuration
 RUN echo "RUN=yes" >> /etc/default/saned

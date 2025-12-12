@@ -21,10 +21,11 @@ RUN apt install --no-install-recommends -y \
                 whois \
                 nano \
                 usbutils \
-                sane
+                sane \
+                sane-utils
 
 # Service SANE
-RUN service saned start
+#RUN service saned start
 
 # SANE Default Configuration
 RUN echo "RUN=yes" >> /etc/default/saned

@@ -21,10 +21,11 @@ RUN apt install --no-install-recommends -y \
                 whois \
                 nano \
                 usbutils \
-                sane
+                sane-saned \
+                sane-utils \
+                sane-backends
 
 # SANE Default Configuration
-RUN /usr/sbin/saned -D
 RUN echo "RUN=yes" >> /etc/default/saned
 RUN echo "data_portrange = ${SANE_PORT}" >> /etc/sane.d/cupsd.conf
 RUN echo "${ALLOW_IP}" >> /etc/sane.d/cupsd.conf

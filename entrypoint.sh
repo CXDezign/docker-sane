@@ -3,6 +3,9 @@
 # Environment variables
 set -e
 
+# Start SANE Daemon
+saned -l -e
+
 # Default SANE Configuration
 echo "RUN=yes" >> /etc/default/saned
 echo "data_portrange = ${SANE_PORT}" >> /etc/sane.d/cupsd.conf
@@ -13,6 +16,3 @@ echo "${SERVER_IP}" >> /etc/sane.d/net.conf
 
 # Add root user to SANE group
 usermod -a -G scanner root
-
-# Start SANE Daemon
-saned -l -e

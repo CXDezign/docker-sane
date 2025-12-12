@@ -15,6 +15,7 @@ echo "${ALLOW_IP}" >> /etc/sane.d/saned.conf
 echo "net" >> /etc/sane.d/dll.conf
 echo "${SANE_BACKEND_DLL}" >> /etc/sane.d/dll.conf
 echo "${SERVER_IP}" >> /etc/sane.d/net.conf
+echo "sane-port       6566/tcp" >> /etc/services
 
 # Restore Configurations
 if [ ! -f /etc/sane.d/saned.conf ]; then

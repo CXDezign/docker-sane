@@ -20,7 +20,6 @@ Use either **Docker Run** or **Docker Compose** to run the Docker image in a con
 | `-p`                  | `ports:`           | `6566`                      | SANE network port. |
 | `-e ALLOW_IP`         | `ALLOW_IP`         | `192.168.0.0`               | Environment allowed IP addresses for remote connection. |
 | `-e SERVER_IP`        | `SERVER_IP`        | `192.168.0.100`             | Environment server IP. |
-| `-e SANE_PORT`        | `SANE_PORT`        | `6566`                      | Environment SANE network port. |
 | `-e SANE_BACKEND_DLL` | `SANE_BACKEND_DLL` | ` `                         | Environment SANE backend DLLs. Use your preferred backend DLLs [Backend DLLs](http://www.sane-project.org/man/sane-dll.5.html). |
 
 ## Docker Run
@@ -32,7 +31,6 @@ docker run -d --name sane \
     -v /etc/sane.d:/etc/sane.d \
     -e ALLOW_IP=192.168.0.0 \
     -e SERVER_IP=192.168.0.100 \
-    -e SANE_PORT=6566 \
     -e SANE_BACKEND_DLL= \
     cxdezign/docker-sane
 ```
@@ -51,7 +49,6 @@ services:
         environment:
             - ALLOW_IP=192.168.0.0
             - SERVER_IP=192.168.0.100
-            - SANE_PORT=6566
             - SANE_BACKEND_DLL=
         volumes:
             - /etc/sane.d:/etc/sane.d

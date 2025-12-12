@@ -4,7 +4,7 @@
 set -e
 
 # Execute
-exec /usr/sbin/saned -D -e -n
+exec /usr/sbin/saned -l -e -n
 
 # User Configuration
 usermod -a -G scanner root

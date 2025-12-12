@@ -26,14 +26,7 @@ RUN apt install --no-install-recommends -y \
 
 # Service SANE
 #RUN service saned start
-
-# SANE Default Configuration
-RUN echo "RUN=yes" >> /etc/default/saned
-RUN echo "data_portrange = ${SANE_PORT}" >> /etc/sane.d/cupsd.conf
-RUN echo "${ALLOW_IP}" >> /etc/sane.d/cupsd.conf
-RUN echo "net" >> /etc/sane.d/dll.conf
-RUN echo "${SANE_BACKEND_DLL}" >> /etc/sane.d/dll.conf
-RUN echo "${SERVER_IP}" >> /etc/sane.d/net.conf
+#RUN saned -l -e
 
 # Entrypoint
 COPY entrypoint.sh /
@@ -42,9 +35,6 @@ CMD ["/entrypoint.sh"]
 
 # Backup
 RUN cp -rp /etc/sane.d /etc/sane.d.bak
-
-# Service Daemon
-#RUN saned -l -e
 
 # Volume
 VOLUME [ "/etc/sane.d" ]

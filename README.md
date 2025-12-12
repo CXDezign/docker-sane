@@ -21,7 +21,7 @@ Use either **Docker Run** or **Docker Compose** to run the Docker image in a con
 | `-e ALLOW_IP`         | `ALLOW_IP`         | `192.168.0.0`               | Environment allowed IP addresses for remote connection. |
 | `-e SERVER_IP`        | `SERVER_IP`        | `192.168.0.100`             | Environment server IP. |
 | `-e SANE_PORT`        | `SANE_PORT`        | `6566`                      | Environment SANE network port. |
-| `-e SANE_BACKEND_DLL` | `SANE_BACKEND_DLL` | ``                          | Environment SANE backend DLLs. Use your preferred backend DLLs [Backend DLLs](http://www.sane-project.org/man/sane-dll.5.html). |
+| `-e SANE_BACKEND_DLL` | `SANE_BACKEND_DLL` | ` `                         | Environment SANE backend DLLs. Use your preferred backend DLLs [Backend DLLs](http://www.sane-project.org/man/sane-dll.5.html). |
 
 ## Docker Run
 ```bash

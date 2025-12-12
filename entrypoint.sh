@@ -1,15 +1,15 @@
 #!/bin/bash -ex
 
-# Environment variables
+# Environment Variables
 set -e
 
 # Execute
 exec /usr/sbin/saned -l -e
 
-# Add root user to SANE group
+# User Configuration
 usermod -a -G scanner root
 
-# Default SANE Configuration
+# Default Configuration
 echo "RUN=yes" >> /etc/default/saned
 echo "${ALLOW_IP}" >> /etc/sane.d/cupsd.conf
 echo "net" >> /etc/sane.d/dll.conf

@@ -13,7 +13,7 @@ LABEL org.opencontainers.image.author="CXDezign <contact@cxdezign.com>"
 LABEL org.opencontainers.image.url="https://github.com/CXDezign/docker-sane/blob/main/README.md"
 LABEL org.opencontainers.image.licenses=MIT
 
-# Dependencies (Packages & Drivers)
+# Dependencies
 RUN apt update -qqy
 RUN apt upgrade -qqy
 RUN apt install --no-install-recommends -y \
@@ -23,10 +23,6 @@ RUN apt install --no-install-recommends -y \
                 sane \
                 sane-utils
 
-# Service SANE
-#RUN service saned start
-#RUN saned -l -e
-
 # Entrypoint
 COPY entrypoint.sh /
 RUN chmod +x /entrypoint.sh
@@ -34,6 +30,9 @@ CMD ["/entrypoint.sh"]
 
 # Backup
 RUN cp -rp /etc/sane.d /etc/sane.d.bak
+
+# Services
+RUN service sane restart
 
 # Volume
 VOLUME [ "/etc/sane.d" ]

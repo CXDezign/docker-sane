@@ -23,8 +23,10 @@ RUN apt install --no-install-recommends -y \
                 usbutils \
                 sane
 
+# Service SANE
+RUN service saned start
+
 # SANE Default Configuration
-RUN saned -l -e
 RUN echo "RUN=yes" >> /etc/default/saned
 RUN echo "data_portrange = ${SANE_PORT}" >> /etc/sane.d/cupsd.conf
 RUN echo "${ALLOW_IP}" >> /etc/sane.d/cupsd.conf
@@ -40,8 +42,8 @@ CMD ["/entrypoint.sh"]
 # Backup
 RUN cp -rp /etc/sane.d /etc/sane.d.bak
 
-# Service SANE
-#RUN service saned restart
+# Service Daemon
+#RUN saned -l -e
 
 # Volume
 VOLUME [ "/etc/sane.d" ]

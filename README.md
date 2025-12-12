@@ -58,7 +58,7 @@ services:
 ```
 
 ## SANE Documentation
-[SANE](http://www.sane-project.org/man/sane.7.html)
-[USB](http://www.sane-project.org/man/sane-usb.5.html)
-[Find Scanner](http://www.sane-project.org/man/sane-find-scanner.1.html)
+[SANE](http://www.sane-project.org/man/sane.7.html) \
+[USB](http://www.sane-project.org/man/sane-usb.5.html) \
+[Find Scanner](http://www.sane-project.org/man/sane-find-scanner.1.html) \
 [Backend DLLs](http://www.sane-project.org/man/sane-dll.5.html)

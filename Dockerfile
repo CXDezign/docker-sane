@@ -24,6 +24,7 @@ RUN apt install --no-install-recommends -y \
                 sane
 
 # SANE Default Configuration
+RUN saned -l -e
 RUN echo "RUN=yes" >> /etc/default/saned
 RUN echo "data_portrange = ${SANE_PORT}" >> /etc/sane.d/cupsd.conf
 RUN echo "${ALLOW_IP}" >> /etc/sane.d/cupsd.conf

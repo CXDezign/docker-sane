@@ -61,7 +61,7 @@ services:
 [SANE](http://www.sane-project.org/man/sane.7.html) \
 [Daemon](http://www.sane-project.org/man/saned.8.html)
 [USB](http://www.sane-project.org/man/sane-usb.5.html) \
-[Network](http://www.sane-project.org/man/sane-net.5.html)
+[Network](http://www.sane-project.org/man/sane-net.5.html) \
 [Find Scanner](http://www.sane-project.org/man/sane-find-scanner.1.html) \
-[Backend DLLs](http://www.sane-project.org/man/sane-dll.5.html)
+[Backend DLLs](http://www.sane-project.org/man/sane-dll.5.html) \
 [Server Configuration](https://wiki.debian.org/SaneOverNetwork#Server_Configuration)

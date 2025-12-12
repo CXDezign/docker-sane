@@ -5,7 +5,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV ALLOW_IP=192.168.0.0
 ENV SERVER_IP=192.168.0.100
 ENV SANE_PORT=6566
-ENV SANE_BACKEND_DLL=pixma
+ENV SANE_BACKEND_DLL=
 
 # Labels
 LABEL org.opencontainers.image.source="https://github.com/CXDezign/docker-sane"

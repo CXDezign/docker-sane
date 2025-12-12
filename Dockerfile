@@ -32,7 +32,7 @@ CMD ["/entrypoint.sh"]
 RUN cp -rp /etc/sane.d /etc/sane.d.bak
 
 # Services
-RUN service sane restart
+RUN service saned restart
 
 # Volume
 VOLUME [ "/etc/sane.d" ]

@@ -11,13 +11,17 @@ Image package available from:
 # Usage
 Use either **Docker Run** or **Docker Compose** to run the Docker image in a container with customised parameters.
 
-## Parameters
-| Flag          | Parameter         | Default                     | Description |
-| ------------- | ----------------- | --------------------------- | ----------- |
-| `--name`      | `container_name:` | `sane`                      | Preferred Docker container name. |
-| `--device`    | `devices:`        | `/dev/bus/usb:/dev/bus/usb` | Add host device (USB scanner) to container. Default passes the whole USB bus in case the USB port on your device changes. Change to a fixed USB port if it will remain unchanged, example: `/dev/bus/usb/001/005`. |
-| `-v`          | `volumes:`        | `sane.d`                    | Persistent Docker container volume for SANE configuration files (migration or backup purposes). |
-| `-p`          | `ports:`          | `6566`                      | SANE network port. |
+## Parameters & Environment Variables
+| Flag                  | Parameter          | Default                     | Description |
+| --------------------- | ------------------ | --------------------------- | ----------- |
+| `--name`              | `container_name:`  | `sane`                      | Preferred Docker container name. |
+| `--device`            | `devices:`         | `/dev/bus/usb:/dev/bus/usb` | Add host device (USB scanner) to container. Default passes the whole USB bus in case the USB port on your device changes. Change to a fixed USB port if it will remain unchanged, example: `/dev/bus/usb/001/005`. |
+| `-v`                  | `volumes:`         | `sane.d`                    | Persistent Docker container volume for SANE configuration files (migration or backup purposes). |
+| `-p`                  | `ports:`           | `6566`                      | SANE network port. |
+| `-e ALLOW_IP`         | `ALLOW_IP`         | `192.168.0.0`               | Environment allowed IP addresses for remote connection. |
+| `-e SERVER_IP`        | `SERVER_IP`        | `192.168.0.100`             | Environment server IP. |
+| `-e SANE_PORT`        | `SANE_PORT`        | `6566`                      | Environment SANE network port. |
+| `-e SANE_BACKEND_DLL` | `SANE_BACKEND_DLL` | ``                          | Environment SANE backend DLLs. Use your preferred backend DLLs [Backend DLLs](http://www.sane-project.org/man/sane-dll.5.html). |
 
 ## Docker Run
 ```bash
@@ -26,6 +30,10 @@ docker run -d --name sane \
     --device /dev/bus/usb \
     -p 6566:6566 \
     -v /etc/sane.d:/etc/sane.d \
+    -e ALLOW_IP=192.168.0.0 \
+    -e SERVER_IP=192.168.0.100 \
+    -e SANE_PORT=6566 \
+    -e SANE_BACKEND_DLL= \
     cxdezign/docker-sane
 ```
 
@@ -40,6 +48,11 @@ services:
             - 6566:6566
         devices:
             - /dev/bus/usb:/dev/bus/usb
+        environment:
+            - ALLOW_IP=192.168.0.0
+            - SERVER_IP=192.168.0.100
+            - SANE_PORT=6566
+            - SANE_BACKEND_DLL=
         volumes:
             - /etc/sane.d:/etc/sane.d
 ```

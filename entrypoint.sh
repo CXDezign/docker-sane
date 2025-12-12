@@ -11,7 +11,7 @@ usermod -a -G scanner root
 
 # Default Configuration
 echo "RUN=yes" >> /etc/default/saned
-echo "${ALLOW_IP}" >> /etc/sane.d/cupsd.conf
+echo "${ALLOW_IP}" >> /etc/sane.d/saned.conf
 echo "net" >> /etc/sane.d/dll.conf
 echo "${SANE_BACKEND_DLL}" >> /etc/sane.d/dll.conf
 echo "${SERVER_IP}" >> /etc/sane.d/net.conf

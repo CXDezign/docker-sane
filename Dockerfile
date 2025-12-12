@@ -39,4 +39,4 @@ RUN cp -rp /etc/sane.d /etc/sane.d.bak
 VOLUME [ "/etc/sane.d" ]
 
 # Ports
-EXPOSE ${SANE_PORT}
+EXPOSE 6566

@@ -33,6 +33,5 @@ if [ ! -f /etc/sane.d/saned.conf ]; then
     cp -rpn /etc/sane.d.bak/* /etc/sane.d/
 fi
 
-wait
 # Execute
-#exec /usr/sbin/saned -l -e -n
+exec /usr/sbin/saned -l -e -n

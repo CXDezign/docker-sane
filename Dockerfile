@@ -29,6 +29,9 @@ RUN apt install --no-install-recommends -y \
                 libavachi-client-dev \
                 libusb-1.*-dev
 
+# Work Directory
+WORKDIR /opt/AirSane
+
 # Entrypoint
 COPY entrypoint.sh /
 RUN chmod +x /entrypoint.sh

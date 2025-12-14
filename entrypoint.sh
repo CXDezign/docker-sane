@@ -17,8 +17,8 @@ cmake ../AirSane
 make
 
 # Directories
-mv /opt/AirSane/etc/* /etc/airsane/
-mv /opt/AirSane/build/airsaned /usr/local/bin
+mv ./AirSane/etc/* /etc/airsane/
+mv ./AirSane/build/airsaned /usr/local/bin
 
 # List Scanners
 scanimage -L

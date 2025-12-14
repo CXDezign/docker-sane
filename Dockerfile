@@ -31,9 +31,6 @@ RUN apt install --no-install-recommends -y \
                 libsane-dev \
                 libavahi-client-dev
 
-# Work Directory
-WORKDIR /opt/AirSane
-
 # Entrypoint
 COPY entrypoint.sh /
 RUN chmod +x /entrypoint.sh

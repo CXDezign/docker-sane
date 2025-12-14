@@ -37,7 +37,6 @@ WORKDIR /opt/AirSane
 COPY entrypoint.sh /
 RUN chmod +x /entrypoint.sh
 CMD ["/entrypoint.sh"]
-CMD ["--access-log=-", "--disclose-version=false", "--debug=true"]
 
 # Backup
 RUN cp -rp /etc/sane.d /etc/sane.d.bak

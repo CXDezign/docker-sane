@@ -27,8 +27,8 @@ RUN apt install --no-install-recommends -y \
                 libsane-dev \
                 libjpeg-dev \
                 libpng-dev \
-                libavachi-client-dev \
-                libusb-1.0.29-dev
+                libavahi-client-dev \
+                libusb-1.0-dev
 
 # Work Directory
 WORKDIR /opt/AirSane

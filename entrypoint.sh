@@ -1,8 +1,5 @@
 #!/bin/bash -ex
 
-# Environment Variables
-set -e
-
 # User Configuration
 usermod -a -G scanner root
 

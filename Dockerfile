@@ -24,7 +24,7 @@ RUN apt install --no-install-recommends -y \
                 sane-utils \
                 sane-airscan \
                 avahi-daemon \
-                libusb-1.0 \
+                libusb-1.0-0-dev \
                 libjpeg-dev \
                 libpng-dev \
                 libsane-dev \

@@ -17,6 +17,7 @@ RUN apt install --no-install-recommends -y \
                 whois \
                 nano \
                 usbutils \
+                ca-certificates \
                 git \
                 cmake \
                 g++ \

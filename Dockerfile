@@ -24,11 +24,11 @@ RUN apt install --no-install-recommends -y \
                 sane-utils \
                 sane-airscan \
                 avahi-daemon \
-                libsane-dev \
+                libusb-1.0 \
                 libjpeg-dev \
                 libpng-dev \
-                libavahi-client-dev \
-                libusb-1.0-dev
+                libsane-dev \
+                libavahi-client-dev
 
 # Work Directory
 WORKDIR /opt/AirSane

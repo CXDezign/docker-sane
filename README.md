@@ -57,5 +57,5 @@ services:
 [SANE Network](http://www.sane-project.org/man/sane-net.5.html) \
 [SANE Find Scanner](http://www.sane-project.org/man/sane-find-scanner.1.html) \
 [SANE Backend DLLs](http://www.sane-project.org/man/sane-dll.5.html) \
-[SANE Server Configuration](https://wiki.debian.org/SaneOverNetwork#Server_Configuration)
+[SANE Server Configuration](https://wiki.debian.org/SaneOverNetwork#Server_Configuration) \
 [AIRSANE](https://github.com/SimulPiscator/AirSane)

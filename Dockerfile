@@ -41,7 +41,6 @@ CMD ["--access-log=-", "--disclose-version=false", "--debug=true"]
 
 # Backup
 RUN cp -rp /etc/sane.d /etc/sane.d.bak
-RUN cp -rp /etc/airsane /etc/airsane.bak
 
 # Volume
 VOLUME [ "/etc/sane.d" ]

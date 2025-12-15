@@ -14,12 +14,14 @@ LABEL org.opencontainers.image.licenses=MIT
 RUN apt update -qqy
 RUN apt upgrade -qqy
 RUN apt install --no-install-recommends -y \
+		systemd \
                 whois \
                 nano \
                 usbutils \
                 ca-certificates \
                 git \
                 cmake \
+		build-essential \
                 g++ \
                 sane \
                 sane-utils \
@@ -29,21 +31,22 @@ RUN apt install --no-install-recommends -y \
                 libjpeg-dev \
                 libpng-dev \
                 libsane-dev \
-                libavahi-client-dev
-
-# Entrypoint
-COPY entrypoint.sh /
-RUN chmod +x /entrypoint.sh
-CMD ["/entrypoint.sh"]
-
-# Backup
-RUN cp -rp /etc/sane.d /etc/sane.d.bak
+                libavahi-client-dev \
+		libavahi-client3
 
 # Volume
 VOLUME [ "/etc/sane.d" ]
 VOLUME [ "/etc/airsane" ]
-VOLUME [ "/etc/default/airsane" ]
 
 # Ports
 EXPOSE 6566
 EXPOSE 8090
+
+# Work Directory
+WORKDIR /opt/airsane
+
+# Entrypoint
+COPY entrypoint.sh /
+RUN chmod +x /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["--access-log=-", "--disclose-version=false", "--debug=true"]

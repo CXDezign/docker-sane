@@ -39,6 +39,10 @@ services:
         image: cxdezign/docker-sane
         container_name: sane
         restart: unless-stopped
+        privileged: true
+        cap_add:
+            - NET_ADMIN
+            - SYS_ADMIN
         ports:
             - 6566:6566
             - 8090:8090
@@ -47,7 +51,6 @@ services:
         volumes:
             - /etc/sane.d:/etc/sane.d
             - /etc/airsane:/etc/airsane
-            - /etc/default/airsane:/etc/default/airsane
 ```
 
 ## SANE Documentation

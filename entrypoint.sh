@@ -1,34 +1,36 @@
 #!/bin/bash -ex
+set -euo pipefail
 
-# User Modification
-usermod -a -G saned,scanner root
+if [[ ! -x /usr/local/bin/airsaned ]]; then
+	# User Modification
+	usermod -a -G saned,scanner root
 
-# GIT Clone
-git clone https://github.com/SimulPiscator/AirSane.git .
+	# GIT Clone
+	git clone https://github.com/SimulPiscator/AirSane.git .
 
-# Directories
-mkdir build
-cd build
+	# Directories
+	mkdir build
+	mkdir -p /run/dbus
+	cd build
 
-# Make
-cmake ..
-make
+	# Make
+	cmake ..
+	make
 
-# List Scanners
-scanimage -L
-
-# Service
-mv /opt/airsane/build/airsaned /usr/local/bin
+	# Service
+	mv /opt/airsane/build/airsaned /usr/local/bin
+fi
 
 # Execute UDEV Daemon
 /lib/systemd/systemd-udevd --daemon
 
 # Execute Avahi Daemon
-mkdir -p /run/dbus
 dbus-daemon --system --address=unix:path=/run/dbus/system_bus_socket &
 sleep 1
-
 /usr/sbin/avahi-daemon --daemonize &
 
+# List Scanners
+scanimage -L
+
 # Execute Airsane Daemon
-/usr/local/bin/airsaned "$@"
+exec /usr/local/bin/airsaned "$@"

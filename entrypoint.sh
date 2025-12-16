@@ -10,7 +10,6 @@ if [[ ! -x /usr/local/bin/airsaned ]]; then
 
 	# Directories
 	mkdir build
-	mkdir -p /run/dbus
 	cd build
 
 	# Make
@@ -24,10 +23,16 @@ fi
 # Execute UDEV Daemon
 /lib/systemd/systemd-udevd --daemon
 
-# Execute Avahi Daemon
+# Execute DBUS Socket
+rm -f /run/dbus/pid
+mkdir -p /run/dbus
 dbus-daemon --system --address=unix:path=/run/dbus/system_bus_socket &
-sleep 1
-/usr/sbin/avahi-daemon --daemonize &
+sleep 5
+
+# Execute Avahi Daemon
+#/usr/sbin/avahi-daemon --daemonize &
+rm -f /run/avahi-daemon//pid
+/usr/sbin/avahi-daemon --no-drop-root &
 
 # List Scanners
 scanimage -L

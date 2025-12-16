@@ -49,4 +49,4 @@ WORKDIR /opt/airsane
 COPY entrypoint.sh /
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["--access-log=-", "--disclose-version=false", "--debug=true"]
+CMD ["--access-log=-", "--debug=true", "--reset-option=true", "--local-scanners-only=false"]

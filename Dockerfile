@@ -15,23 +15,23 @@ RUN apt update -qqy
 RUN apt upgrade -qqy
 RUN apt install --no-install-recommends -y \
 		systemd \
-                whois \
-                nano \
-                usbutils \
-                ca-certificates \
-                git \
-                cmake \
+		whois \
+		nano \
+		usbutils \
+		ca-certificates \
+		git \
+		cmake \
 		build-essential \
-                g++ \
-                sane \
-                sane-utils \
-                sane-airscan \
-                avahi-daemon \
-                libusb-1.0-0-dev \
-                libjpeg-dev \
-                libpng-dev \
-                libsane-dev \
-                libavahi-client-dev \
+		g++ \
+		sane \
+		sane-utils \
+		sane-airscan \
+		avahi-daemon \
+		libusb-1.0-0-dev \
+		libjpeg-dev \
+		libpng-dev \
+		libsane-dev \
+		libavahi-client-dev \
 		libavahi-client3
 
 # Volume

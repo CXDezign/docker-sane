@@ -1,6 +1,6 @@
 #!/bin/bash -ex
-set -euo pipefail
 
+## Build Airsane Daemon
 if [[ ! -x /usr/local/bin/airsaned ]]; then
 	# User Modification
 	usermod -a -G saned,scanner root
@@ -24,7 +24,7 @@ fi
 /lib/systemd/systemd-udevd --daemon
 
 # Execute DBUS Socket
-rm -f /run/dbus/pid
+rm -f /run/dbus/pidhttp://10.0.0.2:9040/
 mkdir -p /run/dbus
 dbus-daemon --system --address=unix:path=/run/dbus/system_bus_socket &
 sleep 5

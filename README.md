@@ -17,14 +17,13 @@ Use either **Docker Run** or **Docker Compose** to run the Docker image in a con
 | `--name`              | `container_name:`  | `sane`                                                | Preferred Docker container name. |
 | `--device`            | `devices:`         | `/dev/bus/usb:/dev/bus/usb`                           | Add host device (USB scanner) to container. Default passes the whole USB bus in case the USB port on your device changes. Change to a fixed USB port if it will remain unchanged, example: `/dev/bus/usb/001/005`. |
 | `-v`                  | `volumes:`         | `/etc/sane.d`, `/etc/airsane`, `/etc/default/airsane` | Persistent Docker container volume for SANE configuration files (migration or backup purposes). |
-| `-p`                  | `ports:`           | `6566`, `8090`                                        | SANE & AIRSANE network ports. |
+| `-p`                  | `ports:`           | `8090`                                                | AIRSANE network port. |
 
 ## Docker Run
 ```bash
 docker run -d --name sane \
     --restart unless-stopped \
     --device /dev/bus/usb \
-    -p 6566:6566 \
     -p 8090:8090 \
     -v /etc/sane.d:/etc/sane.d \
     -v /etc/airsane:/etc/airsane \
@@ -36,15 +35,10 @@ docker run -d --name sane \
 ```yaml
 services:
     sane:
-        image: cxdezign/docker-sane
         container_name: sane
+        image: cxdezign/docker-sane
         restart: unless-stopped
-        privileged: true
-        cap_add:
-            - NET_ADMIN
-            - SYS_ADMIN
         ports:
-            - 6566:6566
             - 8090:8090
         devices:
             - /dev/bus/usb:/dev/bus/usb

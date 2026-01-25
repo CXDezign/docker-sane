@@ -26,7 +26,6 @@ docker run -d --name sane \
     -p 8090:8090 \
     -v /etc/sane.d:/etc/sane.d \
     -v /etc/airsane:/etc/airsane \
-    -v /etc/default/airsane:/etc/default/airsane \
     --device /dev/bus/usb \
     cxdezign/docker-sane
 ```
@@ -43,7 +42,6 @@ services:
         volumes:
             - /etc/sane.d:/etc/sane.d
             - /etc/airsane:/etc/airsane
-            - /etc/default/airsane:/etc/default/airsane
         devices:
             - /dev/bus/usb:/dev/bus/usb
 ```

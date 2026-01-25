@@ -15,19 +15,19 @@ Use either **Docker Run** or **Docker Compose** to run the Docker image in a con
 | Flag                  | Parameter          | Default                                               | Description |
 | --------------------- | ------------------ | --------------------------------------- | ----------- |
 | `--name`              | `container_name:`  | `sane`                                                | Preferred Docker container name. |
-| `--device`            | `devices:`         | `/dev/bus/usb:/dev/bus/usb`                           | Add host device (USB scanner) to container. Default passes the whole USB bus in case the USB port on your device changes. Change to a fixed USB port if it will remain unchanged, example: `/dev/bus/usb/001/005`. |
+| `-p`                  | `ports:`           | `6566`, `8090`                                        | SANE & AIRSANE network ports. |
 | `-v`                  | `volumes:`         | `/etc/sane.d`, `/etc/airsane`, `/etc/default/airsane` | Persistent Docker container volume for SANE configuration files (migration or backup purposes). |
-| `-p`                  | `ports:`           | `8090`                                                | AIRSANE network port. |
+| `--device`            | `devices:`         | `/dev/bus/usb:/dev/bus/usb`                           | Add host device (USB scanner) to container. Default passes the whole USB bus in case the USB port on your device changes. Change to a fixed USB port if it will remain unchanged, example: `/dev/bus/usb/001/005`. |
 
 ## Docker Run
 ```bash
 docker run -d --name sane \
     --restart unless-stopped \
-    --device /dev/bus/usb \
     -p 8090:8090 \
     -v /etc/sane.d:/etc/sane.d \
     -v /etc/airsane:/etc/airsane \
     -v /etc/default/airsane:/etc/default/airsane \
+    --device /dev/bus/usb \
     cxdezign/docker-sane
 ```
 
@@ -40,11 +40,12 @@ services:
         restart: unless-stopped
         ports:
             - 8090:8090
-        devices:
-            - /dev/bus/usb:/dev/bus/usb
         volumes:
             - /etc/sane.d:/etc/sane.d
             - /etc/airsane:/etc/airsane
+            - /etc/default/airsane:/etc/default/airsane
+        devices:
+            - /dev/bus/usb:/dev/bus/usb
 ```
 
 ## SANE Documentation
